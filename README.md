@@ -1,5 +1,8 @@
 # kitfiscal-client — SDK Java
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Maven Central](https://img.shields.io/maven-central/v/ro.kitfiscal/kitfiscal-client.svg)](https://central.sonatype.com/artifact/ro.kitfiscal/kitfiscal-client)
+
 Client Java pentru `kitfiscal API` (estimator fiscal PFA / SRL Micro / SRL
 Profit, România 2026). Fără dependențe de runtime — folosește
 `java.net.http.HttpClient` (standard din JDK 11+) și un parser JSON propriu,
@@ -104,3 +107,17 @@ care încearcă un upgrade la HTTP/2 (h2c) înainte de a trimite cererea.
 duce la cereri `POST` al căror corp JSON nu ajungea la server, rezultând în
 erori `422` de validare pe partea de API, deși payload-ul construit local era
 corect. Clientul forțează acum explicit `HttpClient.Version.HTTP_1_1`.
+
+## Publicare pe Maven Central
+
+Automată, prin `.github/workflows/publish-java-sdk.yml` — se declanșează la
+un tag Git de forma `java-v1.0.0`. Necesită, configurate o singură dată în
+Settings → Secrets ale acestui repository: cont Sonatype verificat pentru
+namespace-ul `ro.kitfiscal`, plus o cheie GPG pentru semnarea artefactelor
+(Maven Central respinge orice pachet nesemnat). Detalii complete, în
+comentariile din capul fișierului workflow.
+
+```bash
+git tag java-v1.0.0
+git push origin java-v1.0.0
+```

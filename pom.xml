@@ -11,6 +11,26 @@
 
     <name>kitfiscal-client</name>
     <description>Client Java pentru kitfiscal API — estimator fiscal PFA / SRL Micro / SRL Profit, Romania 2026.</description>
+    <url>https://github.com/Ciprian-LocalPulse/kit-fiscal-digital-romania-2026</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/Ciprian-LocalPulse/kit-fiscal-digital-romania-2026/blob/main/sdks/java/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Ciprian Ștefan Pleșca</name>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/Ciprian-LocalPulse/kit-fiscal-digital-romania-2026</url>
+        <connection>scm:git:https://github.com/Ciprian-LocalPulse/kit-fiscal-digital-romania-2026.git</connection>
+    </scm>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -44,4 +64,60 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <url>https://central.sonatype.com/api/v1/publisher</url>
+        </repository>
+    </distributionManagement>
+
+    <!--
+        Profil activat explicit doar la publicare (mvn deploy -P release),
+        nu la `mvn test` obișnuit din CI — semnarea GPG ar eșua fără cheie
+        configurată, deci n-ar trebui să ruleze la fiecare push normal.
+    -->
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.3.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals><goal>jar-no-fork</goal></goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.6.3</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals><goal>jar</goal></goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>3.2.4</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals><goal>sign</goal></goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
