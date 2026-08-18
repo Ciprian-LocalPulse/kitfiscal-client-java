@@ -1,11 +1,11 @@
-package ro.kitfiscal.client;
+package io.github.ciprianlocalpulse.kitfiscal;
 
-import ro.kitfiscal.client.exception.KitFiscalApiException;
-import ro.kitfiscal.client.internal.Json;
-import ro.kitfiscal.client.model.PragRezultat;
-import ro.kitfiscal.client.model.RezultatComparativ;
-import ro.kitfiscal.client.model.RezultatFiscal;
-import ro.kitfiscal.client.model.VenitInput;
+import io.github.ciprianlocalpulse.kitfiscal.exception.KitFiscalApiException;
+import io.github.ciprianlocalpulse.kitfiscal.internal.Json;
+import io.github.ciprianlocalpulse.kitfiscal.model.PragRezultat;
+import io.github.ciprianlocalpulse.kitfiscal.model.RezultatComparativ;
+import io.github.ciprianlocalpulse.kitfiscal.model.RezultatFiscal;
+import io.github.ciprianlocalpulse.kitfiscal.model.VenitInput;
 
 import java.io.IOException;
 import java.net.URI;

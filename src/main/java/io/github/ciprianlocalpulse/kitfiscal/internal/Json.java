@@ -1,4 +1,4 @@
-package ro.kitfiscal.client.internal;
+package io.github.ciprianlocalpulse.kitfiscal.internal;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

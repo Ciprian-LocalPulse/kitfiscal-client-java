@@ -1,4 +1,4 @@
-package ro.kitfiscal.client.exception;
+package io.github.ciprianlocalpulse.kitfiscal.exception;
 
 /**
  * Aruncată când API-ul kitfiscal răspunde cu un status HTTP de eroare

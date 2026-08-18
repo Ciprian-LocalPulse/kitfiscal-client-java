@@ -4,19 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ro.kitfiscal</groupId>
+    <groupId>io.github.ciprianlocalpulse</groupId>
     <artifactId>kitfiscal-client</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>kitfiscal-client</name>
     <description>Client Java pentru kitfiscal API — estimator fiscal PFA / SRL Micro / SRL Profit, Romania 2026.</description>
-    <url>https://github.com/Ciprian-LocalPulse/kit-fiscal-digital-romania-2026</url>
+    <url>https://github.com/Ciprian-LocalPulse/kitfiscal-client-java</url>
 
     <licenses>
         <license>
             <name>MIT License</name>
-            <url>https://github.com/Ciprian-LocalPulse/kit-fiscal-digital-romania-2026/blob/main/sdks/java/LICENSE</url>
+            <url>https://github.com/Ciprian-LocalPulse/kitfiscal-client-java/blob/main/LICENSE</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -28,8 +28,8 @@
     </developers>
 
     <scm>
-        <url>https://github.com/Ciprian-LocalPulse/kit-fiscal-digital-romania-2026</url>
-        <connection>scm:git:https://github.com/Ciprian-LocalPulse/kit-fiscal-digital-romania-2026.git</connection>
+        <url>https://github.com/Ciprian-LocalPulse/kitfiscal-client-java</url>
+        <connection>scm:git:https://github.com/Ciprian-LocalPulse/kitfiscal-client-java.git</connection>
     </scm>
 
     <properties>

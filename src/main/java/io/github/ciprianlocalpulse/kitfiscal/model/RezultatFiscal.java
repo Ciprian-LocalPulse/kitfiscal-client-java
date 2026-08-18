@@ -1,4 +1,4 @@
-package ro.kitfiscal.client.model;
+package io.github.ciprianlocalpulse.kitfiscal.model;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
