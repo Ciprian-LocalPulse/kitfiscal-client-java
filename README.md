@@ -1,7 +1,7 @@
 # kitfiscal-client — SDK Java
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.ciprianlocalpulse/kitfiscal-client.svg)](https://central.sonatype.com/artifact/io.github.ciprianlocalpulse/kitfiscal-client)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.ciprian-localpulse/kitfiscal-client.svg)](https://central.sonatype.com/artifact/io.github.ciprian-localpulse/kitfiscal-client)
 
 Client Java pentru `kitfiscal API` (estimator fiscal PFA / SRL Micro / SRL
 Profit, România 2026). Fără dependențe de runtime — folosește
@@ -14,7 +14,7 @@ Jackson/Gson/OkHttp deja prezente în aplicația gazdă.
 
 ```xml
 <dependency>
-    <groupId>io.github.ciprianlocalpulse</groupId>
+    <groupId>io.github.ciprian-localpulse</groupId>
     <artifactId>kitfiscal-client</artifactId>
     <version>1.0.0</version>
 </dependency>
@@ -113,7 +113,7 @@ corect. Clientul forțează acum explicit `HttpClient.Version.HTTP_1_1`.
 Automată, prin `.github/workflows/publish-java-sdk.yml` — se declanșează la
 un tag Git de forma `java-v1.0.0`. Necesită, configurate o singură dată în
 Settings → Secrets ale acestui repository: cont Sonatype verificat pentru
-namespace-ul `io.github.ciprianlocalpulse`, plus o cheie GPG pentru semnarea artefactelor
+namespace-ul `io.github.ciprian-localpulse`, plus o cheie GPG pentru semnarea artefactelor
 (Maven Central respinge orice pachet nesemnat). Detalii complete, în
 comentariile din capul fișierului workflow.
 
