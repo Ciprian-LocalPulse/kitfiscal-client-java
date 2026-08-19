@@ -35,9 +35,7 @@ import java.util.Map;
  */
 public final class KitFiscalClient implements AutoCloseable {
 
-    /** 
-     * Seam de testabilitate — permite injectarea unei implementări personalizate de Transport.
-     */
+    /** Seam de testabilitate — vezi {@link #KitFiscalClient(String, String, Duration, int, Transport)}. */
     @FunctionalInterface
     public interface Transport {
         Response send(String method, String url, String jsonBody, Map<String, String> headers) throws IOException;
@@ -57,15 +55,6 @@ public final class KitFiscalClient implements AutoCloseable {
         this(baseUrl, null, Duration.ofSeconds(15), 2, null);
     }
 
-    /**
-     * Constructor complet cu configurare detaliată.
-     * 
-     * @param baseUrl URL-ul bazei API-ului
-     * @param apiKey cheia API (opțională)
-     * @param timeout timeout pentru cererile HTTP
-     * @param maxRetries numărul de reîncercări pentru erori 5xx
-     * @param transport implementare personalizată de transport (opțională; dacă este null, se folosește HttpClient)
-     */
     public KitFiscalClient(String baseUrl, String apiKey, Duration timeout, int maxRetries, Transport transport) {
         this.baseUrl = baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
         this.apiKey = apiKey;

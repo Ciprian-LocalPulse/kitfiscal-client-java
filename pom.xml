@@ -65,12 +65,14 @@
         </plugins>
     </build>
 
-    <distributionManagement>
-        <repository>
-            <id>central</id>
-            <url>https://central.sonatype.com/api/v1/publisher</url>
-        </repository>
-    </distributionManagement>
+    <!--
+        NU folosim distributionManagement clasic (URL Nexus/OSSRH) — contul
+        Sonatype creat prin Central Portal (central.sonatype.com) nu suportă
+        deploy direct cu maven-deploy-plugin către un URL arbitrar. Publicarea
+        se face exclusiv prin central-publishing-maven-plugin, mai jos, care
+        împachetează artefactele într-un bundle și le trimite prin API-ul
+        oficial al Portal-ului.
+    -->
 
     <!--
         Profil activat explicit doar la publicare (mvn deploy -P release),
@@ -130,6 +132,27 @@
                                 <arg>--pinentry-mode</arg>
                                 <arg>loopback</arg>
                             </gpgArguments>
+                        </configuration>
+                    </plugin>
+
+                    <!--
+                        Pluginul oficial pentru Sonatype Central Portal —
+                        singurul mecanism suportat pentru conturile create
+                        prin central.sonatype.com (nu Nexus/OSSRH clasic).
+                        Se leaga automat de faza "deploy" (extensions=true),
+                        deci `mvn deploy -P release` il activeaza fara alt
+                        goal explicit.
+                    -->
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>0.7.0</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <!-- trebuie sa coincida cu <server-id> din
+                                 actions/setup-java, in workflow -->
+                            <publishingServerId>central</publishingServerId>
+                            <autoPublish>true</autoPublish>
                         </configuration>
                     </plugin>
                 </plugins>
