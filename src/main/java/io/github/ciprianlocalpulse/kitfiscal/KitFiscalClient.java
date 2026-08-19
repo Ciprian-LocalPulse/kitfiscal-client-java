@@ -35,7 +35,6 @@ import java.util.Map;
  */
 public final class KitFiscalClient implements AutoCloseable {
 
-    /** Seam de testabilitate — vezi {@link #KitFiscalClient(String, String, Duration, int, Transport)}. */
     @FunctionalInterface
     public interface Transport {
         Response send(String method, String url, String jsonBody, Map<String, String> headers) throws IOException;
@@ -55,6 +54,10 @@ public final class KitFiscalClient implements AutoCloseable {
         this(baseUrl, null, Duration.ofSeconds(15), 2, null);
     }
 
+    /**
+     * Constructor complet, folosit în principal pentru injectarea unui
+     * {@link Transport} simulat în teste — vezi {@link Transport}.
+     */
     public KitFiscalClient(String baseUrl, String apiKey, Duration timeout, int maxRetries, Transport transport) {
         this.baseUrl = baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
         this.apiKey = apiKey;
